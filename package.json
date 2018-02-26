@@ -1,5 +1,5 @@
 {
-  "name": "owtracker",
+  "name": "owverwatchTracker",
   "version": "0.0.2",
   "description": "A express app to track and analyze overwatch details",
   "main": "index.js",
@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://www.github.com/JoshB2699/owTracker"
+    "url": "https://www.github.com/JoshB2699/overwatchTracker"
   },
   "keywords": [
     "express",
