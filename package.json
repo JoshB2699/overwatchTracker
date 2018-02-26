@@ -1,0 +1,26 @@
+{
+  "name": "owtracker",
+  "version": "0.0.2",
+  "description": "A express app to track and analyze overwatch details",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://www.github.com/JoshB2699/owTracker"
+  },
+  "keywords": [
+    "express",
+    "overwatch",
+    "mongo"
+  ],
+  "author": "JoshB2699",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^5.0.1",
+    "ejs": "^2.5.7",
+    "express": "^4.16.2",
+    "mongoose": "^4.13.10"
+  }
+}
