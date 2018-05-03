@@ -1,7 +1,9 @@
+//Require our mongoose schemas
 const Map = require('../models/map.js');
 const Game = require('../models/game.js');
+const Hero = require('../models/hero.js');
 
-module.exports = function(app, mongoose){
+module.exports = function(app, mongoose, uuid){
 
   app.get('/', function(req, res){
     res.render('index');
@@ -9,8 +11,6 @@ module.exports = function(app, mongoose){
 
   app.get('/input', function(req, res){
     Map.find({}, function(err, maps){
-
-//      maps.sort(function(a,b) {return (a.mapType > b.mapType) ? 1 : ((b.mapType > a.mapType) ? -1 : 0);} )
 
        maps.sort(function(a,b){
           if (a.mapType === b.mapType){
@@ -26,8 +26,20 @@ module.exports = function(app, mongoose){
           }
        });
 
-      res.render('input', {
-        maps: maps
+       Hero.find({}, function(err,heroes){
+
+         heroes.sort(function(a,b){
+          if(a.name>b.name){
+            return 1;
+          } else {
+            return -1;
+          }
+         });
+
+        res.render('input', {
+          maps: maps,
+          heroes: heroes
+        });
       });
     });
   });
@@ -44,22 +56,58 @@ module.exports = function(app, mongoose){
     res.render('admin');
   });
 
-  app.post('/admin', function(req, res){
-    var map = new Map({
-      name: req.body.mapName,
-      mapType: req.body.mapType
-    });
+  app.post('/admin/:type', function(req, res){
+    if(req.params.type == "map"){
 
-    map.save(function(err) {
-        if (err){
-          throw err;
-        } else {
-          console.log("Map successfully added: " + req.body.mapName + " Type: " + req.body.mapType);
-          res.redirect('/admin');
-        }
+      var map = new Map({
+        name: req.body.mapName,
+        mapType: req.body.mapType
+      });
 
-    });
+      map.save(function(err) {
+          if (err){
+            throw err;
+          } else {
+            console.log("Map successfully added: " + req.body.mapName + " Type: " + req.body.mapType);
+            res.redirect('/admin');
+          }
+      });
+
+    } else if (req.params.type == "hero"){
+
+      var hero = new Hero({
+        name: req.body.heroName,
+        type: req.body.heroType
+      });
+
+      hero.save(function(err) {
+            if (err){
+              throw err;
+            } else {
+              console.log("Map successfully added: " + req.body.heroName + " Type: " + req.body.heroType);
+              res.redirect('/admin');
+            }
+        });
+      }
 
   });
 
+
+  app.post('/input', function(req, res){
+
+    var game = new Game({
+      uuid: uuid(),
+      mapName: req.body.map,
+      winLose: req.body.winLose,
+      heroes: req.body.heroes
+    });
+
+    game.save(function(err) {
+          if (err){
+            throw err;
+          } else {
+            res.redirect('/input');
+          }
+      });
+  });
 }

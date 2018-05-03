@@ -1,30 +1,25 @@
-<!DOCTYPE html>
+</DOCTYPE html>
 <html>
   <head>
     <title>OW Tracker - Input</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <style>
-      .form-inline {
-        padding:10px;
-      }
-      .form-inline > * {
-        margin:15px 3px !important;
-      }
-    </style>
+    <link href="/public/css/general.css" rel="stylesheet" />
   </head>
   <body>
+
+    <%- include includes/navbar %>
 
     <div class = "container">
       <div class = "jumbotron">
         <div class = "row">
           <div class = "col-sm-12">
-            <h2>Input match data</h2>
+            <h2>Edit game data</h2>
           </div>
         </div>
 
         <p></p>
 
-        <form name="inputForm" action="/admin" method="post">
+        <form name="Form" action="/admin/map" method="post">
           <h5>Add New Map:</h5>
           <div class = "row">
             <div class = "col-sm-4">
@@ -60,6 +55,44 @@
             </div>
           </div>
         </form>
+
+        <form name="inputForm" action="/admin/hero" method="post">
+          <h5>Add New Hero:</h5>
+          <div class = "row">
+            <div class = "col-sm-4">
+              <div class="form-group form-inline">
+                <label for = "heroName">Name: </label>
+                <input class="form-control" type="text" name="heroName" required="true" id="heroName" placeholder="Hero Name">
+              </div>
+            </div>
+            <div class = "col-sm-3">
+              <div class="form-group form-inline">
+                <label for = "heroType">Type: </label>
+                <select class = "custom-select" name = "heroType" id = "heroType">
+                  <option value="offense">
+                    Offense
+                  </option>
+                  <option value="denfense">
+                    Defense
+                  </option>
+                  <option value="tank">
+                    Tank
+                  </option>
+                  <option value="support">
+                    Support
+                  </option>
+                </select>
+              </div>
+            </div>
+
+            <div class = "col-sm-3">
+              <div class = "form-group form-inline">
+                <button type="submit" id="inputForm" class="btn btn-block btn-primary">Add Hero</button>
+              </div>
+            </div>
+          </div>
+        </form>
+
       </div>
     </div>
 

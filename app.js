@@ -5,6 +5,8 @@ const mongoose = require('mongoose');
 const path = require('path');
 const dotenv = require('dotenv');
 const bodyParser = require('body-parser');
+const uuid = require('uuid/v1');
+
 
 //Initialize express app.
 const app = express();
@@ -33,7 +35,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 
 //Require our routes file.
-require('./config/routes.js')(app, mongoose);
+require('./config/routes.js')(app, mongoose, uuid);
 
 //Listen on the defined port and send a message to the console.
 app.listen(config.port);
