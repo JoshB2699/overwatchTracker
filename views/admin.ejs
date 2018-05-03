@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>OW Tracker - Input</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+      .form-inline {
+        padding:10px;
+      }
+      .form-inline > * {
+        margin:15px 3px !important;
+      }
+    </style>
+  </head>
+  <body>
+
+    <div class = "container">
+      <div class = "jumbotron">
+        <div class = "row">
+          <div class = "col-sm-12">
+            <h2>Input match data</h2>
+          </div>
+        </div>
+
+        <p></p>
+
+        <form name="inputForm" action="/admin" method="post">
+          <h5>Add New Map:</h5>
+          <div class = "row">
+            <div class = "col-sm-4">
+              <div class="form-group form-inline">
+                <label for = "mapName">Name: </label>
+                <input class="form-control" type="text" name="mapName" required="true" id="mapName" placeholder="Map Name">
+              </div>
+            </div>
+            <div class = "col-sm-3">
+              <div class="form-group form-inline">
+                <label for = "mapType">Type: </label>
+                <select class = "custom-select" name = "mapType" id = "mapType">
+                  <option value="assault">
+                    Assault
+                  </option>
+                  <option value="control">
+                    Control
+                  </option>
+                  <option value="escort">
+                    Escort
+                  </option>
+                  <option value="hybrid">
+                    Hybrid
+                  </option>
+                </select>
+              </div>
+            </div>
+
+            <div class = "col-sm-3">
+              <div class = "form-group form-inline">
+                <button type="submit" id="inputForm" class="btn btn-block btn-primary">Add Map</button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+
+
+
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+
+  </body>
+
+</html>

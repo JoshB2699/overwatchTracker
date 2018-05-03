@@ -4,6 +4,7 @@ const ejs = require('ejs');
 const mongoose = require('mongoose');
 const path = require('path');
 const dotenv = require('dotenv');
+const bodyParser = require('body-parser');
 
 //Initialize express app.
 const app = express();
@@ -27,9 +28,12 @@ app.set('views', path.join(__dirname, 'views'));
 //Set up public directory.
 app.use(express.static(path.join(__dirname, 'public')));
 app.use('/public', express.static(path.join(__dirname, 'public')));
+//Configure body parser.
+app.use(bodyParser.urlencoded({ extended: true }));
+
 
 //Require our routes file.
-require('./config/routes.js')(app);
+require('./config/routes.js')(app, mongoose);
 
 //Listen on the defined port and send a message to the console.
 app.listen(config.port);
