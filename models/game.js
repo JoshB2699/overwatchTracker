@@ -1,5 +1,6 @@
 var mongoose = require('mongoose');
 
+//Make a database schema for a game record.
 var gameSchema = mongoose.Schema({
         uuid : String,
         mapName : String,

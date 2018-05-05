@@ -15,7 +15,7 @@ const app = express();
 dotenv.config();
 const dbURL = process.env.MONGO_URI;
 
-//Require our config file/
+//Require our config file.
 const config = require('./config/config.js');
 
 //Connect to mongo database.
