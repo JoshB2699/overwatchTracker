@@ -89,8 +89,7 @@ module.exports = function(app, mongoose, uuid){
 
           stats.heroPlaytime = formulae.heroPlaytime(games);
           stats.gameModePlaytime = formulae.gameModePlaytime(games, maps);
-
-          console.log(stats.gameModePlaytime)
+          stats.heroTypePlaytime = formulae.heroTypePlaytime(games, heroes);
 
           //Render input.ejs and send the maps and heroes array.
           res.render('graphs', {

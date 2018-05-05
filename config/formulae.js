@@ -110,6 +110,45 @@ var jgameModePlaytime = function(games, maps){
 
 module.exports.gameModePlaytime = jgameModePlaytime;
 
+var jheroTypePlaytime = function(games, heroes){
+
+  var offense = 0;
+  var defense = 0;
+  var tank = 0;
+  var support = 0;
+
+  var heroDataArr = getHeroData(games);
+
+  heroDataArr.forEach(function(heroData){
+    switch(getHeroType(heroData.hero, heroes)){
+      case "offense":
+        offense++;
+      case "defense":
+        defense++;
+      case "tank":
+        tank++;
+      case "support":
+        support++;
+    }
+  });
+
+  heroTypePlaytime = [["Offense", offense], ["Defense", defense], ["Tank", tank], ["Support", support]]
+
+
+  heroTypePlaytime.sort(function(a,b){
+    if(a[1]<b[1]){
+      return 1;
+    } else {
+      return -1;
+    }
+  });
+
+  heroTypePlaytime.unshift(["Hero Mode", "Playtime"]);
+
+  return heroTypePlaytime;
+}
+
+module.exports.heroTypePlaytime = jheroTypePlaytime;
 
 function getMapData(games){
 
@@ -178,6 +217,14 @@ function getMapType(name, maps){
   } else {
     return x.mapType;
   }
+}
 
+function getHeroType(name, heroes){
+  var x = heroes.find(e => e.name === name);
 
+  if(typeof(x) == "undefined"){
+    throw new Error('The Hero could not be found in the list of heroes.\nHero searched for: ' + name);
+  } else {
+    return x.type;
+  }
 }

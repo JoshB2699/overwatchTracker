@@ -15,7 +15,7 @@
 
         var hpOptions = {
           title: 'Hero Playtime (Games)',
-          pieSliceText: 'value',
+          pieSliceText: 'percentage',
           backgroundColor: '#e9ecef',
           fontSize: '15'
         };
@@ -25,6 +25,32 @@
         heroPlaytime.draw(hpData, hpOptions);
 
         //Draw the game mode playtime chart.
+        var gmData = google.visualization.arrayToDataTable(<%-JSON.stringify(stats.gameModePlaytime) %>);
+
+        var gmOptions = {
+          title: 'Game Mode Playtime (Games)',
+          pieSliceText: 'percentage',
+          backgroundColor: '#e9ecef',
+          fontSize: '15'
+        };
+
+        var gameModePlaytime = new google.visualization.PieChart(document.getElementById('gameModePlaytime'));
+
+        gameModePlaytime.draw(gmData, gmOptions);
+
+        //Draw the graph for map type playtime.
+        var htData = google.visualization.arrayToDataTable(<%-JSON.stringify(stats.heroTypePlaytime) %>);
+
+        var htOptions = {
+          title: 'Hero Type Playtime (Games)',
+          pieSliceText: 'percentage',
+          backgroundColor: '#e9ecef',
+          fontSize: '15'
+        };
+
+        var heroTypePlaytime = new google.visualization.PieChart(document.getElementById('heroTypePlaytime'));
+
+        heroTypePlaytime.draw(htData, htOptions);
 
       }
     </script>
@@ -39,6 +65,14 @@
         <div class = "row">
           <div class = "col-sm-6">
             <div id = "heroPlaytime" style="height:350px"></div>
+          </div>
+          <div class = "col-sm-6">
+            <div id = "gameModePlaytime" style="height:350px"></div>
+          </div>
+        </div>
+        <div class = "row">
+          <div class="col-sm-6">
+            <div id = "heroTypePlaytime" style="height:350px"></div>
           </div>
         </div>
       </div>
