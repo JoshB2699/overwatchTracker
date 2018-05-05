@@ -181,6 +181,34 @@ var jheroTypePlaytime = function(games, heroes){
 //Expose heroTypePlaytime as a function when requiring formuale.
 module.exports.heroTypePlaytime = jheroTypePlaytime;
 
+var jHeroWinPercentages = function(games){
+  //Create a blank hero win percent array.
+  var heroWinPercentArr = [];
+
+  //Get the formatted map data.
+  var heroData = getHeroData(games);
+
+  //Loop thorugh the array and add a member to each object with the win percentage on each map.
+  for(var i = 0; i < heroData.length; i++){
+    heroWinPercentArr.push([heroData[i].hero, (heroData[i].wins/ heroData[i].noOfGames)]);
+  }
+
+  //Sort the array by the number of times each hero name alphabetically.
+  heroWinPercentArr.sort(function(a,b){
+    if(a[0]>b[0]){
+      return 1;
+    } else {
+      return -1;
+    }
+  });
+
+  heroWinPercentArr.unshift(["Hero", "Win Percentage"]);
+
+  console.log(heroWinPercentArr)
+  return heroWinPercentArr;
+}
+module.exports.heroWinPercentage = jHeroWinPercentages;
+
 function getMapData(games){
   //Set up an empty array for the game data.
   var gameData = [];

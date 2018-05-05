@@ -12,9 +12,34 @@
 
     <div class = "container">
       <div class = "jumbotron">
+        <h4>Best Hero: <%-stats.bestHero.hero %></h4>
         <div class = "row">
-          <div class = "col-sm-3">
-            
+          <div class = "col-sm-12">
+            <p style="white-space: pre">Win Percentage: <%-stats.bestHero.winPercent * 100%>% over <%-stats.bestHero.noOfGames %> games.</p>
+          </div>
+        </div>
+        <h4>Best Map: <%-stats.bestMap.mapName %></h4>
+        <div class = "row">
+          <div class = "col-sm-12">
+            <p style="white-space: pre">Win Percentage: <%-stats.bestMap.winPercent * 100%>% over <%-stats.bestMap.noOfGames %> games.</p>
+          </div>
+        </div>
+        <h4>Most Played Hero: <%-stats.heroPlaytime[1][0] %></h4>
+        <div class = "row">
+          <div class = "col-sm-12">
+            <p style="white-space: pre">Games Played: <%-stats.heroPlaytime[1][1] %></p>
+          </div>
+        </div>
+        <h4>Most Played Role: <%-stats.heroTypePlaytime[1][0] %></h4>
+        <div class = "row">
+          <div class = "col-sm-12">
+            <p style="white-space: pre">Games Played: <%-stats.heroTypePlaytime[1][1] %></p>
+          </div>
+        </div>
+        <h4>Most Played Map Type: <%-stats.gameModePlaytime[1][0] %></h4>
+        <div class = "row">
+          <div class = "col-sm-12">
+            <p style="white-space: pre">Games Played: <%-stats.gameModePlaytime[1][1] %></p>
           </div>
         </div>
       </div>

@@ -65,8 +65,11 @@ module.exports = function(app, mongoose, uuid){
 
           stats.bestMap = formulae.bestMap(games);
           stats.bestHero = formulae.bestHero(games);
+          stats.heroPlaytime = formulae.heroPlaytime(games);
+          stats.heroTypePlaytime = formulae.heroTypePlaytime(games, heroes);
+          stats.gameModePlaytime = formulae.gameModePlaytime(games, maps);
 
-          //Render input.ejs and send the maps and heroes array.
+          //Render input.ejs and stats object.
           res.render('stats', {
             stats: stats
           });
@@ -90,8 +93,9 @@ module.exports = function(app, mongoose, uuid){
           stats.heroPlaytime = formulae.heroPlaytime(games);
           stats.gameModePlaytime = formulae.gameModePlaytime(games, maps);
           stats.heroTypePlaytime = formulae.heroTypePlaytime(games, heroes);
+          stats.heroWinPercentage = formulae.heroWinPercentage(games);
 
-          //Render input.ejs and send the maps and heroes array.
+          //Render input.ejs and send the stats object.
           res.render('graphs', {
             stats: stats
           });

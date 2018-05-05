@@ -52,6 +52,22 @@
 
         heroTypePlaytime.draw(htData, htOptions);
 
+        //Draw the win percentage column chart.
+        var wpData = google.visualization.arrayToDataTable(<%-JSON.stringify(stats.heroWinPercentage) %>);
+
+        var wpOptions = {
+          title: 'Hero Win Percentages',
+          backgroundColor: '#e9ecef',
+          fontSize: '15',
+          legend: {position: 'none'},
+          vAxis: {format: 'percent'}
+        };
+
+
+      var wpchart = new google.visualization.ColumnChart(document.getElementById('heroWinPercentages'));
+
+      wpchart.draw(wpData, wpOptions);
+
       }
     </script>
   </head>
@@ -73,6 +89,9 @@
         <div class = "row">
           <div class="col-sm-6">
             <div id = "heroTypePlaytime" style="height:350px"></div>
+          </div>
+          <div class="col-sm-6">
+            <div id = "heroWinPercentages" style="height:350px"></div>
           </div>
         </div>
       </div>
