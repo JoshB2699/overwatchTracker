@@ -7,6 +7,7 @@
   </head>
   <body>
 
+    <!-- Inlcude the navbar.ejs file. -->
     <%- include includes/navbar %>
 
     <div class = "container">
@@ -25,8 +26,9 @@
               <div class="form-group form-inline">
                 <label for="winlose">Win/Loss:</label>
                 <select id="winlose" name="winLose" class = "custom-select">
-                  <option value="win">Win</option>
-                  <option value="loss">Loss</option>
+                  <option value="1">Win</option>
+                  <option value="0">Loss</option>
+                  <option value="0">Draw</option>
                 </select>
               </div>
             </div>
@@ -35,7 +37,7 @@
                 <label for="map">Map:</label>
                 <select id="map" name="map" class = "custom-select">
                   <% for(var i = 0; i < maps.length; i++){%>
-                    <option value = <%=maps[i].name %> > <%=maps[i].name %> </option>
+                    <option value = "<%=maps[i].name %>" > <%=maps[i].name %> </option>
                   <% } %>
                 </select>
               </div>
@@ -45,7 +47,7 @@
                 <label for="heroes">Heroes:</label>
                 <select id = "heroes" name="heroes" class="custom-select no_checkboxes" multiple="multiple">
                   <% for(var i = 0; i < heroes.length; i++){%>
-                    <option value = <%=heroes[i].name %> > <%=heroes[i].name %> </option>
+                    <option value = "<%=heroes[i].name %>" > <%=heroes[i].name %> </option>
                   <% } %>
                 </select>
 

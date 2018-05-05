@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>OW Tracker - Graphs</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="/public/css/general.css" rel="stylesheet" />
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+        //Draw the hero playtime chart.
+        var hpData = google.visualization.arrayToDataTable(<%-JSON.stringify(stats.heroPlaytime) %>);
+
+        var hpOptions = {
+          title: 'Hero Playtime (Games)',
+          pieSliceText: 'value',
+          backgroundColor: '#e9ecef',
+          fontSize: '15'
+        };
+
+        var heroPlaytime = new google.visualization.PieChart(document.getElementById('heroPlaytime'));
+
+        heroPlaytime.draw(hpData, hpOptions);
+
+        //Draw the game mode playtime chart.
+
+      }
+    </script>
+  </head>
+  <body>
+
+    <!-- Inlcude the navbar.ejs file. -->
+    <%- include includes/navbar %>
+
+    <div class = "container">
+      <div class = "jumbotron">
+        <div class = "row">
+          <div class = "col-sm-6">
+            <div id = "heroPlaytime" style="height:350px"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/css/bootstrap-select.min.css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.15/css/bootstrap-multiselect.css" rel="stylesheet" />
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.15/js/bootstrap-multiselect.js  " type="text/javascript"></script>
+    <script src="/public/js/form.js" type="text/javascript"></script>
+  </body>
+
+</html>
