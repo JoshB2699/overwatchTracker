@@ -19,9 +19,7 @@ const dbURL = process.env.MONGO_URI;
 const config = require('./config/config.js');
 
 //Connect to mongo database.
-mongoose.connect(dbURL, {
-  useMongoClient: 'true'
-});
+mongoose.connect(dbURL, { useNewUrlParser: true });
 
 //Set the view engine to use ejs.
 app.set('view engine', 'ejs');

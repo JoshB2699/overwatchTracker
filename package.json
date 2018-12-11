@@ -1,5 +1,5 @@
 {
-  "name": "owverwatchTracker",
+  "name": "overwatchTracker",
   "version": "0.0.2",
   "description": "A express app to track and analyze overwatch details",
   "main": "index.js",
@@ -18,12 +18,12 @@
   "author": "JoshB2699",
   "license": "ISC",
   "dependencies": {
-    "body-parser": "^1.18.2",
-    "cookie-parser": "^1.4.3",
-    "dotenv": "^5.0.1",
-    "ejs": "^2.5.7",
-    "express": "^4.16.2",
-    "mongoose": "^4.13.10",
-    "uuid": "^3.2.1"
+    "body-parser": "^1.18.3",
+    "dotenv": "^6.1.0",
+    "ejs": "^2.6.1",
+    "express": "^4.16.4",
+    "mongoose": "^5.3.14",
+    "path": "^0.12.7",
+    "uuid": "^3.3.2"
   }
 }
